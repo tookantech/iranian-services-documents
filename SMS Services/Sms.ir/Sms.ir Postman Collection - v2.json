@@ -1,0 +1,923 @@
+{
+	"info": {
+		"_postman_id": "3150dfff-7f57-4a4d-9189-8c41013cf308",
+		"name": "SMS.ir Panel V2 Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send SMS",
+			"item": [
+				{
+					"name": "BulkSend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineNumber\": 300000000000,\r\n    \"messageText\": \"Your Text\",\r\n    \"mobiles\": [\r\n        \"Your Mobile 1\",\r\n        \"Your Mobile 2\"\r\n    ],\r\n    \"sendDateTime\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/bulk",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeToLike",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lineNumber\": 300000000000,\n    \"messageTexts\": [\n        \"Your Text 1\",\n        \"Your Text 2\"\n    ],\n    \"mobiles\": [\n        \"Your Mobile 1\",\n        \"Your Mobile 1\"\n    ],\n    \"senddatetime\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/likeToLike",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"likeToLike"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"lineNumber\": 17934987,\n  \"messageTexts\": [\n    \"in minim nulla dolor in\",\n    \"amet ut\"\n  ],\n  \"mobiles\": [\n    \"eu pariatur mollit\",\n    \"enim\"\n  ],\n  \"sendDateTime\": -22594203\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v{{version}}/send/likeTolike",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v{{version}}",
+										"send",
+										"likeTolike"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": -6605097,\n  \"message\": \"velit dol\",\n  \"data\": {\n    \"packId\": \"95a5d13a-0bbd-087a-6129-ab2d6469d010\",\n    \"messageIds\": [\n      32245811,\n      6297597\n    ],\n    \"cost\": -19937449.966095194\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteScheduledSends",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/scheduled/:Packid",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"scheduled",
+								":Packid"
+							],
+							"variable": [
+								{
+									"key": "Packid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v{{version}}/send/scheduled/:packId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v{{version}}",
+										"send",
+										"scheduled",
+										":packId"
+									],
+									"variable": [
+										{
+											"key": "packId",
+											"value": "df42f0bd-44e9-57bc-7f41-818f4e7fcded",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": -35259947,\n  \"message\": \"ea dolore\",\n  \"data\": {\n    \"returnedCreditCount\": -94614623.86508992,\n    \"smsCount\": -47087535\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "VerificationSend",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							},
+							{
+								"key": "x-api-key",
+								"value": "9z7bCq8cEx1YtgV6KmyZ1Hbx9CfSwdF47NDweJGHg7wIw3EE4UPjUSsnOmFZ2eXm",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"mobile\": \"Your Mobile\",\n  \"templateId\": YourTemplateID,\n  \"parameters\": [\n    {\n      \"name\": \"PARAMETER1\",\n      \"value\": \"000000\"\n    },\n    {\n        \"name\":\"PARAMETER2\",\n        \"value\":\"000000\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/verify",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"verify"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"mobile\": \"tempor velit reprehenderit\",\n  \"templateId\": 11651445,\n  \"parameters\": [\n    {\n      \"name\": \"Excepteur ipsum ut commodo en\",\n      \"value\": \"exercitation ad culpa dolore\"\n    },\n    {\n      \"name\": \"si\",\n      \"value\": \"Lorem irure eiusmod\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v{{version}}/send/verify",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v{{version}}",
+										"send",
+										"verify"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": 42459245,\n  \"message\": \"dolor reprehenderit\",\n  \"data\": {\n    \"messageId\": 98564583,\n    \"cost\": 60819279.80782008\n  }\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "MessagesReport-Single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/:MessageID",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								":MessageID"
+							],
+							"variable": [
+								{
+									"key": "MessageID",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessagesReport-Bulk",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "PageSize",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/pack/:PackID",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"pack",
+								":PackID"
+							],
+							"variable": [
+								{
+									"key": "PackID",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessagesReport-Currentday",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "PageSize",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/pack?pageNumber=1&pageSize=100",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"pack"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessagesReport-CurrentDay-Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/live?pageNumber=1&pageSize=20",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"live"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v{{version}}/send/live?pageNumber=1&pageSize=100",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v{{version}}",
+										"send",
+										"live"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"data\": [\n    {\n      \"messageId\": 91091097,\n      \"mobile\": -48316868,\n      \"messageText\": \"elit labore laborum\",\n      \"sendDateTime\": -82766318,\n      \"lineNumber\": -55885992,\n      \"cost\": 41841111.5355815,\n      \"deliveryState\": -80915797,\n      \"deliveryDateTime\": -74470774\n    },\n    {\n      \"messageId\": 41183706,\n      \"mobile\": -17222945,\n      \"messageText\": \"in elit dolor\",\n      \"sendDateTime\": -4120802,\n      \"lineNumber\": -15362842,\n      \"cost\": 10780141.186232403,\n      \"deliveryState\": 47507609,\n      \"deliveryDateTime\": 18285364\n    }\n  ],\n  \"errorCode\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "MessagesReport-Archived",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/archive?pageNumber=1&pageSize=100&fromDate=1650016645\n&toDate=1650880645",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "fromDate",
+									"value": "1650016645\n"
+								},
+								{
+									"key": "toDate",
+									"value": "1650880645"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v{{version}}/send/archive?pageNumber=1&pageSize=100&fromDate=-36275647&toDate=-36275647",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v{{version}}",
+										"send",
+										"archive"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "100"
+										},
+										{
+											"key": "fromDate",
+											"value": "-36275647"
+										},
+										{
+											"key": "toDate",
+											"value": "-36275647"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": -91134044,\n  \"message\": \"nulla ull\",\n  \"data\": [\n    {\n      \"messageId\": -76879245,\n      \"mobile\": 9430019,\n      \"messageText\": \"do id\",\n      \"sendDateTime\": 18701513,\n      \"lineNumber\": -63281887,\n      \"cost\": -80574495.16314957,\n      \"deliveryState\": -38138455,\n      \"deliveryDateTime\": 81415168\n    },\n    {\n      \"messageId\": 42785077,\n      \"mobile\": 73938501,\n      \"messageText\": \"eiusmod enim ut\",\n      \"sendDateTime\": 14642729,\n      \"lineNumber\": 40646086,\n      \"cost\": -6399088.656687275,\n      \"deliveryState\": -6138677,\n      \"deliveryDateTime\": -69526895\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "archive/pack",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/send/archive/pack?pageNumber=1&pageSize=1000",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"send",
+								"archive",
+								"pack"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v{{version}}/send/archive/pack?pageNumber=1&pageSize=100",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v{{version}}",
+										"send",
+										"archive",
+										"pack"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"data\": [\n    {\n      \"packId\": \"2e858b62-53f2-4d7b-956a-c1731fa245e3\",\n      \"recipientCount\": -42692927,\n      \"creationDateTime\": -37885912\n    },\n    {\n      \"packId\": \"urn:uuid:63dbec0a-7817-760c-bc02-e27487621ccf\",\n      \"recipientCount\": 64696625,\n      \"creationDateTime\": 13824539\n    }\n  ],\n  \"errorCode\": null\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "GetCredit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.sms.ir/v1/credit",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetLines",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "PageSize",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/line",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"line"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ReceiveMessages",
+			"item": [
+				{
+					"name": "Receive-Latest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.sms.ir/v1/receive/latest?count=100",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"receive",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Receive-CurrentDay",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "PageSize",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/receive/live?pageNumber=1&pageSize=100",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"receive",
+								"live"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Receive-Archived",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "PageSize",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.sms.ir/v1/receive/archive?pageNumber=1&pageSize=100&fromDate=1628683629&toDate=1628693629",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sms",
+								"ir"
+							],
+							"path": [
+								"v1",
+								"receive",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "fromDate",
+									"value": "1628683629"
+								},
+								{
+									"key": "toDate",
+									"value": "1628693629"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "[YOURAPIKEY]",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-API-KEY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
