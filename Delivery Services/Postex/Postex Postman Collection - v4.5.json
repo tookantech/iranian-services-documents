@@ -1,0 +1,1057 @@
+{
+	"info": {
+		"_postman_id": "1220ad37-c41f-4f1a-b56a-e6b5a8d01ce7",
+		"name": "PostBar Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Username",
+							"value": "",
+							"description": "اجباری",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "",
+							"description": "اجباری",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"description": "اختیاری",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postex.ir/api/login",
+					"protocol": "https",
+					"host": [
+						"postex",
+						"ir"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Type",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJDdXN0b21lcklkIjoxODc0MTksImV4cCI6MTU3NzgwOTI1NH0.HlHtNBIKqEoCbyNvMVbGciRxeJk4mWfVBthD12Li_-U",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://postkhone.com/api/getServiceList",
+					"protocol": "http",
+					"host": [
+						"postkhone",
+						"com"
+					],
+					"path": [
+						"api",
+						"getServiceList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get State",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJDdXN0b21lcklkIjoyMzAzOTgyLCJleHAiOjE1NjU1MDMyMzR9.vDwhblWkc2ZWiIHbm6iTXB6EORjqzyNSgb8nfjDtlio",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://postbar.ir/api/state/getState",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"state",
+						"getState"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "دریافت لیست استان ها"
+			},
+			"response": []
+		},
+		{
+			"name": "get Towns of State",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "stateId",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/town/getTownsByStateId",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"town",
+						"getTownsByStateId"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "دریافت لیست شهر های یک استان"
+			},
+			"response": []
+		},
+		{
+			"name": "get All towns",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJDdXN0b21lcklkIjoyMzAzOTgyLCJleHAiOjE1NjU1MDMyMzR9.vDwhblWkc2ZWiIHbm6iTXB6EORjqzyNSgb8nfjDtlio",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://postbar.ir/api/town/getTowns",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"town",
+						"getTowns"
+					]
+				},
+				"description": "دریافت لیست تمامی شهر های ایران"
+			},
+			"response": []
+		},
+		{
+			"name": "get Insurance List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJDdXN0b21lcklkIjoyNzM3MzksImV4cCI6MTU3NzEzMTY0M30.XZdGmp4g3f9909kVpnUPN5og715FSKaTlW-MLm7r59A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "serviceId",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/getInsuranceList",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"getInsuranceList"
+					]
+				},
+				"description": "دریافت لیست موارد بیمه"
+			},
+			"response": []
+		},
+		{
+			"name": "get Carton Size List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "serviceId",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/getCartonSizeList",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"getCartonSizeList"
+					]
+				},
+				"description": "دریافت لیست کارتون و لفاف بندی"
+			},
+			"response": []
+		},
+		{
+			"name": "get price",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Weight",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "ServiceId",
+							"value": "655",
+							"type": "text"
+						},
+						{
+							"key": "InsuranceName",
+							"value": "تا 650 هزار تومان غیرشکستنی",
+							"type": "text"
+						},
+						{
+							"key": "CartonSizeName",
+							"value": "کارتن نیاز ندارم.",
+							"type": "text"
+						},
+						{
+							"key": "IsCod",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "CodGoodsPrice",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "StateProvinceId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "TownId",
+							"value": "580",
+							"type": "text"
+						},
+						{
+							"key": "AccessPrintBill",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/getPrice",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"getPrice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout Order_Json",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/checkout/jnewOrder",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"checkout",
+						"jnewOrder"
+					]
+				},
+				"description": "ثبت سفارش"
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ConfirmPassword",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Gender",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "FirstName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "LastName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "DateOfBirthDay",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "DateOfBirthMonth",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "DateOfBirthYear",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Company",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "StreetAddress",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "StreetAddress2",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "City",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "CountryId",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "StateProvinceId",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Fax",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ZipPostalCode",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/customer/register",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"customer",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FinalizeOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "orderId",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postbar.ir/api/checkout/FinalizeOrder",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"checkout",
+						"FinalizeOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getpdfinvoice",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "http://postbar.ir/api/order/getpdfinvoice/{orderId}",
+					"protocol": "http",
+					"host": [
+						"postbar",
+						"ir"
+					],
+					"path": [
+						"api",
+						"order",
+						"getpdfinvoice",
+						"{orderId}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ServiceId",
+							"value": "654",
+							"description": "شناسه نوع سرویس",
+							"type": "text"
+						},
+						{
+							"key": "GoodsType",
+							"value": "تست",
+							"description": "محتویات مرسوله",
+							"type": "text"
+						},
+						{
+							"key": "ApproximateValue",
+							"value": "150000",
+							"description": "ارزش ریال مرسوله",
+							"type": "text"
+						},
+						{
+							"key": "CodGoodsPrice",
+							"value": "0",
+							"description": "مبلغ کالا در سفارشات (COD) پس کرایه",
+							"type": "text"
+						},
+						{
+							"key": "Weight",
+							"value": "500",
+							"description": "وزن به گرم",
+							"type": "text"
+						},
+						{
+							"key": "InsuranceName",
+							"value": "غرامت تا سقف 300 هزار تومان",
+							"description": "عنوان ردیف بیمه انتخابی",
+							"type": "text"
+						},
+						{
+							"key": "CartonSizeName",
+							"value": "کارتن نیاز ندارم.",
+							"description": "عنوان ردیف انتخابی کارتون و لفاف بندی",
+							"type": "text"
+						},
+						{
+							"key": "Sender_FristName",
+							"value": "api-test",
+							"description": "نام فرستنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_LastName",
+							"value": "be-canceled",
+							"description": "نام خانوادگی گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_mobile",
+							"value": "09139064053",
+							"description": "موبایل گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_StateId",
+							"value": "246",
+							"description": "شناسه استان فرساتنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_City",
+							"value": "",
+							"description": "نام شهرستان فرستنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_townId",
+							"value": "175",
+							"description": "شناسه شهر فرستنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_PostCode",
+							"value": "8111111111",
+							"description": "کد پستی فرستنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_Address",
+							"value": "اصفهان",
+							"description": "آدرس فرستنده",
+							"type": "text"
+						},
+						{
+							"key": "Sender_Email",
+							"value": "karimi.ehsan@gmail.com",
+							"description": "ایمیل فرستنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_FristName",
+							"value": "احسان22",
+							"description": "نام گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_LastName",
+							"value": "کریمی22",
+							"description": "نام خانوادگی گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_mobile",
+							"value": "09139064053",
+							"description": "موبایل گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_StateId",
+							"value": "1",
+							"description": "شناسه استان گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_City",
+							"value": "",
+							"description": "نام شهرستان گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_townId",
+							"value": "582",
+							"description": "شناسه شهر گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_PostCode",
+							"value": "1511111111",
+							"description": "کد پستی گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_Address",
+							"value": "تهران",
+							"description": "آدرس گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "Reciver_Email",
+							"value": "test@gmail.com",
+							"description": "ایمیل گیرنده",
+							"type": "text"
+						},
+						{
+							"key": "IsCOD",
+							"value": "0",
+							"description": "آیا سفارش پس کرایه می باشد؟",
+							"type": "text"
+						},
+						{
+							"key": "HasAccessToPrinter",
+							"value": "1",
+							"description": "درسترسی به پرینتر جهت چاپ فاکتور و الصاق روی بسته",
+							"type": "text"
+						},
+						{
+							"key": "AgentSaleAmount",
+							"value": "",
+							"description": "مبلغ خدمات نمایندگی(مربوط به نمایندگان)",
+							"type": "text"
+						},
+						{
+							"key": "discountCouponCode",
+							"value": "",
+							"description": "کد کوپن تخفیف",
+							"type": "text"
+						},
+						{
+							"key": "length",
+							"value": "10",
+							"description": "طول",
+							"type": "text"
+						},
+						{
+							"key": "width",
+							"value": "10",
+							"description": "عرض",
+							"type": "text"
+						},
+						{
+							"key": "height",
+							"value": "10",
+							"description": "ارتفاع",
+							"type": "text"
+						},
+						{
+							"key": "boxType",
+							"value": "1",
+							"description": "نوع بسته بندی",
+							"type": "text"
+						},
+						{
+							"key": "receiver_ForeginCountry",
+							"value": "",
+							"description": "شناسه کشور مقصد در پست خارجی",
+							"type": "text"
+						},
+						{
+							"key": "receiver_ForeginCountryName",
+							"value": "",
+							"description": "نام کشور مقصد در پست خارجی",
+							"type": "text"
+						},
+						{
+							"key": "UbbraTruckType",
+							"value": "",
+							"description": "نوع ماشین حمل بار در حمل و نقل و سنگین",
+							"type": "text"
+						},
+						{
+							"key": "VechileOptions",
+							"value": "",
+							"description": "ویژگی ماشین حمل بار",
+							"type": "text"
+						},
+						{
+							"key": "UbbarPackingLoad",
+							"value": "",
+							"description": "نوع بسته بندی بار در حمل و نقل سنگین",
+							"type": "text"
+						},
+						{
+							"key": "dispatch_date",
+							"value": "",
+							"description": "تاریخ بارگیری در حمل و نقل سنگین",
+							"type": "text"
+						},
+						{
+							"key": "Count",
+							"value": "1",
+							"description": "تعداد",
+							"type": "text"
+						},
+						{
+							"key": "printLogo",
+							"value": "0",
+							"description": "درخواست چاپ نشان نجاری بر روی فاکتور",
+							"type": "text"
+						},
+						{
+							"key": "notifBySms",
+							"value": "0",
+							"description": "درخواست اطلاع رسانی در هر مرحله از ارسال مرسوله",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postex.ir/api/checkout/newOrder",
+					"protocol": "https",
+					"host": [
+						"postex",
+						"ir"
+					],
+					"path": [
+						"api",
+						"checkout",
+						"newOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getServices",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ListType",
+							"value": "0",
+							"description": "List=0,Fastest=1,cheapest=2",
+							"type": "text"
+						},
+						{
+							"key": "senderStateId",
+							"value": "1",
+							"description": "شناسه استان فرستنده-اجباری",
+							"type": "text"
+						},
+						{
+							"key": "senderTownId",
+							"value": "582",
+							"description": "شناسه شهر فرستنده اجباری",
+							"type": "text"
+						},
+						{
+							"key": "receiverStateId",
+							"value": "175",
+							"description": "شناسه استان گیرنده-اجباری",
+							"type": "text"
+						},
+						{
+							"key": "receiverTownId",
+							"value": "246",
+							"description": "شناسه شهر گیرنده اجباری",
+							"type": "text"
+						},
+						{
+							"key": "weightItem",
+							"value": "500",
+							"description": "وزن مرسوله -به گرم-اجباری",
+							"type": "text"
+						},
+						{
+							"key": "AproximateValue",
+							"value": "1000000",
+							"description": "ارزش ریالی مرسوله-اجباری",
+							"type": "text"
+						},
+						{
+							"key": "height",
+							"value": "",
+							"description": "ارتفاع مرسوله-اختیاری",
+							"type": "text"
+						},
+						{
+							"key": "width",
+							"value": "",
+							"description": "عرض مرسوله-اختیاری",
+							"type": "text"
+						},
+						{
+							"key": "length",
+							"value": "",
+							"description": "طول مرسوله-اختیاری",
+							"type": "text"
+						},
+						{
+							"key": "dispatch_date",
+							"value": "",
+							"description": "تاریخ و ساعت بارگیری (فقط در حمل و نقل سنگین-اجباری)",
+							"type": "text"
+						},
+						{
+							"key": "TruckType",
+							"value": "",
+							"description": "نوع خودرو(فقط در حمل و نقل سنگین-اجباری)",
+							"type": "text"
+						},
+						{
+							"key": "VechileOptions",
+							"value": "",
+							"description": "ویژگی خودرو (فقط در حمل و نقل سنگین-اجباری)",
+							"type": "text"
+						},
+						{
+							"key": "PackingLoad",
+							"value": "",
+							"description": "نوع بسته بندی بار(فقط در حمل و نقل سنگین-اجباری)",
+							"type": "text"
+						},
+						{
+							"key": "Content",
+							"value": "ساعت مچی",
+							"description": "محتویات مرسوله یا بار",
+							"type": "text"
+						},
+						{
+							"key": "receiver_ForeginCountry",
+							"value": "",
+							"description": "شناسه کشور مقصد(فقط در پست خارجی-اجباری)",
+							"type": "text"
+						},
+						{
+							"key": "boxType",
+							"value": "0",
+							"description": "0 = pakat , 1 = baste اجباری در پست داخلی",
+							"type": "text"
+						},
+						{
+							"key": "IsCod",
+							"value": "0",
+							"description": "مرسولات پس کرایه:1 - پیش کرایه : 0",
+							"type": "text"
+						},
+						{
+							"key": "serviceId",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postex.ir/api/jgetServices",
+					"protocol": "http",
+					"host": [
+						"postex",
+						"ir"
+					],
+					"path": [
+						"api",
+						"jgetServices"
+					]
+				},
+				"description": "دریافت لیست سرویس ها به همراه قیمت و زمان تحویل"
+			},
+			"response": []
+		},
+		{
+			"name": "TrackingNumber",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJDdXN0b21lcklkIjoyNzM3MzksImV4cCI6MTU3NzEwNTEyMX0.d2kStS5d0ziGl1pOmGM2PWfWX9ueVR38mcU7-BtiWbA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://postkhone.com/api/order/TrackingNumber/105344",
+					"protocol": "https",
+					"host": [
+						"postkhone",
+						"com"
+					],
+					"path": [
+						"api",
+						"order",
+						"TrackingNumber",
+						"105344"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

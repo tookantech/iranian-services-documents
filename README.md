@@ -15,11 +15,14 @@
 - [Farapayamak](https://farapayamak.ir) :heavy_check_mark:
 - [Sms.ir](https://sms.ir) :heavy_check_mark:
 
+## Delivery Services
+- [Postex](https://postex.ir) :heavy_check_mark:
+
+
 ## Accounting Services
 - [Mahak (Bazara Plugin)](https://www.mahaksoft.com/bazara/) :heavy_check_mark:
 
 ## Other Services
-
 
 `Please help us to add more documents.`
 
