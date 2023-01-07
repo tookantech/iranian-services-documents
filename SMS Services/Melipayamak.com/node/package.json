@@ -1,0 +1,31 @@
+{
+  "name": "melipayamak-api",
+  "version": "1.0.0",
+  "description": "Melipayamak Nodejs Wrapper",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Melipayamak/melipayamak-node.git"
+  },
+  "keywords": [
+    "SMS",
+    "Melipayamak",
+    "Async"
+  ],
+  "author": "Amirhossein Mehrvarzi <melipayamak@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Melipayamak/melipayamak-node/issues"
+  },
+  "dependencies": {
+    "soap": "^0.23.0"
+  },
+  "homepage": "https://github.com/Melipayamak/melipayamak-node#readme",
+  "devDependencies": {}
+}
