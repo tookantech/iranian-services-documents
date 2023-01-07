@@ -1,0 +1,1177 @@
+{
+	"info": {
+		"_postman_id": "271c6c8b-91f1-4963-ac2d-5da21566ada6",
+		"name": "Merchant API",
+		"description": "It consist of following requests\n* Create a Payment Ticket\n* Reverse Payment Ticket\n* Cancel payment Ticket\n* Verify payment Ticket\n* Get Payment Ticket Status\n\n\nResponse Rs Codes\n* 0 (Success)\n* 1 (Internal Server Error)\n* 2 (Resource Not Found)\n* 4 (Malformed Data)\n* 5 (Data Not Found)\n* 15 (Access Denied)\n* 16 (Transaction Already Reversed)\n* 17 (Ticket Expired)\n* 18 (Signature Invalid)\n* 19 (Ticket Not in Payable State)\n* 20 (Ticket Customer Mismatch)\n* 21 (Insufficient Credit)\n* 28 (Ticket Already Verified)\n* 32 (Invalid Invoice Data)\n* 33 (Contract is not started)\n* 34 (Contract is expired)\n* 44 (Validation exception)\n* 51 (Request data is not valid)\n* 59 (Transaction not reversible)\n* 60 (Transaction must be in verified state)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Ticket",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const body = JSON.parse(responseBody)",
+							"",
+							"if (body.rsCode === 0) {",
+							"    pm.collectionVariables.set('ticket_id', body.result.ticket_id)",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "MerchantId",
+						"value": "{{merchant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 150000,\r\n    \"redirect_uri\": \"https://redirect-uri.ir\",\r\n    \"fallback_uri\": \"https://fallback-uri.ir\",\r\n    \"provider_id\": {{provider_id}},\r\n    \"mobile_number\": \"09198194987\",\r\n    \"merchant_id\": {{merchant_id}},\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Item 1\",\r\n            \"count\": 1,\r\n            \"amount\": 50000,\r\n            \"url\": \"http://shop.com/items/1\"\r\n        },\r\n        {\r\n            \"name\": \"Item 2\",\r\n            \"count\": 5,\r\n            \"amount\": 20000,\r\n            \"url\": \"http://google.com/items/2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/payment/purchase",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"payment",
+						"purchase"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 150000,\r\n    \"redirect_uri\": \"https://redirect-uri.ir\",\r\n    \"fallback_uri\": \"https://fallback-uri.ir\",\r\n    \"provider_id\": {{provider_id}},\r\n    \"mobile_number\": \"09198194987\",\r\n    \"merchant_id\": {{merchant_id}},\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Item 1\",\r\n            \"count\": 1,\r\n            \"amount\": 50000,\r\n            \"url\": \"http://shop.com/items/1\"\r\n        },\r\n        {\r\n            \"name\": \"Item 2\",\r\n            \"count\": 5,\r\n            \"amount\": 20000,\r\n            \"url\": \"http://google.com/items/2\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/purchase",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"purchase"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:30:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 0,\n    \"result\": {\n        \"payment_uri\": \"https://dev.azkivam.com/payment?ticketId=PJQPHFwN1AM6EUAJ\",\n        \"ticket_id\": \"PJQPHFwN1AM6EUAJ\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Reverse Ticket",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "MerchantId",
+						"value": "{{merchant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ticket_id\": {{ticket_id}},\r\n    \"provider_id\": {{provider_id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/payment/reverse",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"payment",
+						"reverse"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reverse Ticket - Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket_id\": \"{{ticket_id}}\",\r\n    \"provider_id\": {{provider_id}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/reverse",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"reverse"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:30:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 0,\n    \"result\": {\n        \"ticket_id\": \"oGzLlvzFrHYyHtdt\"\n    }\n}"
+				},
+				{
+					"name": "Reverse Ticket - Already Reversed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket_id\": \"{{ticket_id}}\",\r\n    \"provider_id\": {{provider_id}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/reverse",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"reverse"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:30:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 0,\n    \"result\": {\n        \"rsCode\": 16,\n        \"ticket_id\": \"oGzLlvzFrHYyHtdt\"\n    }\n}"
+				},
+				{
+					"name": "Reverse Ticket - Not found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket_id\": \"{{ticket_id}}\",\r\n    \"provider_id\": {{provider_id}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/reverse",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"reverse"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:31:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 2,\n    \"message\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Cancel Ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "MerchantId",
+						"value": "{{merchant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ticketId\": {{ticket_id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/payment/cancel",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"payment",
+						"cancel"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cancel Ticket - Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\": \"{{ticket_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"cancel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:30:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 0,\n    \"result\": {\n        \"fallbackUri\": \"https://fallback-uri.ir\"\n    }\n}"
+				},
+				{
+					"name": "Cancel Ticket - Not found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\": \"{{ticket_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"cancel"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:31:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 2,\n    \"message\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Ticket Status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "MerchantId",
+						"value": "{{merchant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ticket_id\": {{ticket_id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/payment/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"payment",
+						"status"
+					]
+				},
+				"description": "Ticket status types are as follows:\n* 1 (Created)\n* 2 (Done)\n* 3 (Reversed)\n* 4 (Failed)\n* 5 (Canceled)\n* 6 (Settled)"
+			},
+			"response": [
+				{
+					"name": "Ticket Status - Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket_id\": \"{{ticket_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Sep 2021 07:30:11 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 0,\n    \"result\": {\n        \"rsCode\": 0,\n        \"status\": 1,\n        \"ticket_id\": \"PJQPHFwN1AM6EUAJ\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Verify Ticket",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "MerchantId",
+						"value": "{{merchant_id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ticket_id\": {{ticket_id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/payment/verify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"payment",
+						"verify"
+					]
+				},
+				"description": "Ticket status types are as follows:\n* 1 (Created)\n* 2 (Done)\n* 3 (Reversed)\n* 4 (Failed)\n* 5 (Canceled)\n* 6 (Settled)"
+			},
+			"response": [
+				{
+					"name": "Ticket Verify - Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket_id\": \"{{ticket_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/verify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"verify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Sep 2021 11:48:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 0,\n    \"result\": {\n        \"rsCode\": 0,\n        \"ticket_id\": \"ZdpurzdauzgVc8kp\",\n        \"status\": 2\n    }\n}"
+				},
+				{
+					"name": "Ticket Verify - Unverifiable",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "MerchantId",
+								"value": "{{merchant_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket_id\": \"{{ticket_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/verify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"verify"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Sep 2021 11:48:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization, content-type, xsrf-token"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "xsrf-token"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rsCode\": 28,\n    \"message\": \"Ticket status is not valid for verifying.\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const url = request.url.split('?')[0]",
+					"const subUrl = url.substring(url.indexOf('/'))",
+					"",
+					"const plainSignature = subUrl + '##' + request.method + '#' + pm.collectionVariables.get('api_key')",
+					"",
+					"const encrypted = CryptoJS.AES.encrypt(plainSignature, CryptoJS.enc.Hex.parse(pm.collectionVariables.get('api_key')), {",
+					"    iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000'),",
+					"    mode: CryptoJS.mode.CBC,",
+					"    padding: CryptoJS.pad.Pkcs7",
+					"})",
+					"",
+					"pm.collectionVariables.set('signature', CryptoJS.enc.Hex.stringify(CryptoJS.enc.Base64.parse(encrypted.toString())))"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": ""
+		},
+		{
+			"key": "merchant_id",
+			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://api.azkiloan.com"
+		},
+		{
+			"key": "provider_id",
+			"value": ""
+		}
+	]
+}

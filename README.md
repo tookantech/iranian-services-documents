@@ -3,15 +3,20 @@
 
 ## Payment Gateways
 - [AsanPardakht](https://asanpardakht.ir) :heavy_check_mark:
+- [Azkivam](https://azkivam.com) :heavy_check_mark:
 - [Idpay](https://idpay.ir) :heavy_check_mark:
 - [Parsian](https://parsian-bank.ir) :heavy_check_mark:
 - [Sadad](https://sadadpsp.ir/fa/ipg-dargah-pardakht) :heavy_check_mark:
 - [Saman (Sep)](https://sep.ir/%D8%AF%D8%B1%DA%AF%D8%A7%D9%87-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C) :heavy_check_mark:
 - [Sepehr (Saderat)](https://www.sepehrpay.com) :heavy_check_mark:
+- [Walleta](https://walleta.ir) :heavy_check_mark:
 
 ## SMS Service Providers
 - [Farapayamak](https://farapayamak.ir/) :heavy_check_mark:
 - [Sms.ir](https://sms.ir/) :heavy_check_mark:
+
+## Accounting Services
+- [Mahak (Bazara Plugin)](https://www.mahaksoft.com/bazara/) :heavy_check_mark:
 
 ## Other Services
 
