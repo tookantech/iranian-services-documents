@@ -10,6 +10,7 @@
 ## SMS Service Providers
 - [Farapayamak](https://farapayamak.ir/) :heavy_check_mark:
 - [Sms.ir](https://sms.ir/) :heavy_check_mark:
+- [melipayamak.com](https://melipayamak.com/) :heavy_check_mark:
 
 ## Other Services
 
