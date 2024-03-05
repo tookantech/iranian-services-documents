@@ -2,6 +2,6 @@
 
 ### 👇👇👇👇مشاهده مستندات 
 
-### [API](https://merchant.mydigipay.com/docs/#b4c8075466)
+### [API](https://docs.mydigipay.com/upg.html)
 
 ------
